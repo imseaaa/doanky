@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5c28de3a79.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <!---Link Bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <title>Seaaa_PAYMENT</title>
+</head>
+
+<body>
+   <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.jpg"></a>
+        </div>
+        <div class="menu">
+            <li><a href="">Vòng tay</a>
+                <ul class="sub-menu">
+                    <li><a href="vongtaybac.html">Bạc</a></li>
+                    <li><a href="vongtayvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Dây chuyền</a>
+                <ul class="sub-menu">
+                    <li><a href="daychuyenbac.html">Bạc</a></li>
+                    <li><a href="daychuyenvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Charm</a>
+            <ul class="sub-menu">
+                    <li><a href="charmbac.html">Bạc</a></li>
+                    <li><a href="charmvang.html">Vàng</a></li>
+                </ul></li>
+            <li><a href="">Nhẫn</a>
+            <ul class="sub-menu">
+                    <li><a href="nhanbac.html">Bạc</a></li>
+                    <li><a href="nhanvang.html">Vàng</a></li>
+                </ul></li>
+            <li><a href="">Hoa tai</a>
+            <ul class="sub-menu">
+                    <li><a href="hoataibac.html">Bạc</a></li>
+                    <li><a href="hoataivang.html">Vàng</a></li>
+                </ul></li>
+                <li><a href="review.html" style="color: #d9534f;"><i class="fas fa-star me-1"></i> ĐÁNH GIÁ</a></li>
+        </div>
+       <div class="others">
+    <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i></li>
+    <li><a class="fa fa-paw" href=""></a></li>
+    
+    <!-- KHỐI TÀI KHOẢN -->
+    <li id="user-nav">
+        <a class="fa fa-user" href="auth.html" title="Đăng nhập / Đăng ký"></a>
+    </li>
+
+    <li>
+        <a class="cart-icon-wrapper" href="cart.html">
+            <i class="fa fa-shopping-bag"></i>
+            <span id="cart-badge">0</span>
+        </a>
+    </li>
+</div>
+    </header>
+
+    <!--------payment------->
+    <section class="payment">
+        <div class="container">
+            <div class="payment-top-wrap">
+                <div class="payment-top">
+                    <div class="payment-top-cart payment-top-item">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="payment-top-map payment-top-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="payment-top-pay payment-top-item">
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="payment-content">
+                <!-- CỘT TRÁI: PHƯƠNG THỨC GIAO HÀNG & THANH TOÁN -->
+                <div class="payment-content-left">
+                    <div class="payment-content-left-method-delivery">
+                        <p style="font-weight:bold;">Phương thức giao hàng</p>
+                        <div class="payment-content-left-method-delivery-item">
+                            <input checked name="method-deli" type="radio" id="deli-express" value="40000" onchange="updateTotalWithShipping()">
+                            <label for="deli-express">Giao hàng hoả tốc (Giao trong 2 giờ) - 40.000<sup>đ</sup></label>
+                        </div>
+                        <div class="payment-content-left-method-delivery-item">
+                            <input name="method-deli" type="radio" id="deli-standard" value="20000" onchange="updateTotalWithShipping()">
+                            <label for="deli-standard">Giao hàng tiêu chuẩn (2-4 ngày) - 20.000<sup>đ</sup></label>
+                        </div>
+                    </div>
+
+                    <div class="payment-content-left-method-payment" style="margin-top: 25px;">
+                        <p style="font-weight:bold;">Phương thức thanh toán</p>
+                        <p><i>Mọi giao dịch đều được bảo mật.</i></p>
+                        
+                        <div class="payment-content-left-method-payment-item">
+                            <input name="method-payment" type="radio" id="pay-card" value="card">
+                            <label for="pay-card">Thanh toán bằng thẻ tín dụng</label>
+                        </div>
+                        <div class="payment-content-left-method-payment-item-img">
+                            <img src="img/visa.png" alt="" style="width: 50px;">
+                        </div>
+
+                        <div class="payment-content-left-method-payment-item">
+                            <input name="method-payment" type="radio" id="pay-atm" value="atm">
+                            <label for="pay-atm">Thanh toán bằng thẻ ATM</label>
+                        </div>
+                        <div class="payment-content-left-method-payment-item-img">
+                            <img style="width:70px" src="img/atm.webp" alt="">
+                        </div>
+
+                        <div class="payment-content-left-method-payment-item">
+                            <input name="method-payment" type="radio" id="pay-momo" value="momo">
+                            <label for="pay-momo">Thanh toán qua Ví MoMo</label>
+                        </div>
+                        <div class="payment-content-left-method-payment-item-img">
+                            <img style="width:50px" src="img/momo.webp" alt="">
+                        </div>
+
+                        <div class="payment-content-left-method-payment-item">
+                            <input checked name="method-payment" type="radio" id="pay-cod" value="cod">
+                            <label for="pay-cod">Thanh toán khi nhận hàng (COD)</label>
+                        </div>
+                        <div class="payment-content-left-method-payment-item-img">
+                            <img style="width:60px" src="img/cod.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CỘT PHẢI: CHI TIẾT ĐƠN HÀNG -->
+                <div class="payment-content-right">
+                    <div class="payment-content-right-button">
+                        <input type="text" placeholder="Mã giảm giá/Quà tặng">
+                        <button type="button"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                    <div class="payment-content-right-button">
+                        <input type="text" placeholder="Mã thành viên">
+                        <button type="button"><i class="fa-solid fa-check"></i></button>
+                    </div>
+
+                    <table id="payment-table">
+                        <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payment-items-body">
+                            <!-- Dữ liệu sản phẩm sẽ được tự động đổ vào đây -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="font-weight:bold;" colspan="2">Tổng tiền hàng</td>
+                                <td><p id="pay-subtotal" style="font-weight:bold;">0<sup>đ</sup></p></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;" colspan="2">Phí vận chuyển</td>
+                                <td><p id="pay-shipping" style="font-weight:bold;">40.000<sup>đ</sup></p></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;" colspan="2">Tổng thanh toán</td>
+                                <td><p id="pay-total" style="font-weight:bold; color: red; font-size: 16px;">0<sup>đ</sup></p></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- NÚT HOÀN TẤT ĐẶT HÀNG -->
+            <div class="payment-content-right-payment" style="margin-top: 30px; text-align: center;">
+                <button type="button" class="btn btn-dark px-4 py-2" onclick="confirmOrder()">
+                    XÁC NHẬN ĐẶT HÀNG
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer-center">
+        <p>Công ty Cổ phần Value Waste với số đăng ký kinh doanh : 2173401220056 <br>
+            Địa chỉ đăng ký: Lạc Long Quân, P.10, Q.11, TP Ha Noi, Việt Nam - 0334428690 <br>
+        </p>
+    </div>
+    <div class="footer-bottom">
+        ©ValueWatse All rights reserved
+    </div>
+
+    <!-- JAVASCRIPT XỬ LÝ -->
+    <script>
+        // 1. Kiểm tra trạng thái đăng nhập
+        function checkPaymentAuth() {
+            const currentUser = JSON.parse(localStorage.getItem('current_user'));
+            const userNav = document.getElementById('user-nav');
+
+            if (currentUser && userNav) {
+                userNav.innerHTML = `
+                    <span style="font-size: 12px; font-weight: bold;">Chào, ${currentUser.name}</span>
+                    <a href="javascript:void(0)" onclick="logout()" title="Đăng xuất" style="margin-left: 6px; color: red;">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                `;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('current_user');
+            window.location.reload();
+        }
+
+        // 2. Tính toán tiền hàng và phí giao hàng
+        let subtotalPrice = 0;
+
+        function loadPaymentSummary() {
+            const cart = JSON.parse(localStorage.getItem('my_cart')) || [];
+            const tbody = document.getElementById('payment-items-body');
+            tbody.innerHTML = '';
+            subtotalPrice = 0;
+
+            if (cart.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="padding: 15px; color: grey;">Giỏ hàng trống!</td></tr>`;
+                document.getElementById('pay-subtotal').innerHTML = `0<sup>đ</sup>`;
+                document.getElementById('pay-total').innerHTML = `0<sup>đ</sup>`;
+                return;
+            }
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotalPrice += itemTotal;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td><p>${itemTotal.toLocaleString('vi-VN')}<sup>đ</sup></p></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('pay-subtotal').innerHTML = subtotalPrice.toLocaleString('vi-VN') + '<sup>đ</sup>';
+            updateTotalWithShipping();
+        }
+
+        function updateTotalWithShipping() {
+            const shippingRadio = document.querySelector('input[name="method-deli"]:checked');
+            const shippingFee = shippingRadio ? parseInt(shippingRadio.value) : 0;
+            const finalTotal = subtotalPrice + shippingFee;
+
+            document.getElementById('pay-shipping').innerHTML = shippingFee.toLocaleString('vi-VN') + '<sup>đ</sup>';
+            document.getElementById('pay-total').innerHTML = finalTotal.toLocaleString('vi-VN') + '<sup>đ</sup>';
+        }
+
+        // 3. Xác nhận đặt hàng
+        function confirmOrder() {
+            const cart = JSON.parse(localStorage.getItem('my_cart')) || [];
+            if (cart.length === 0) {
+                alert('Giỏ hàng trống! Vui lòng chọn mua sản phẩm trước.');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Xóa giỏ hàng sau khi đặt thành công
+            localStorage.removeItem('my_cart');
+
+            // Chuyển sang trang đặt hàng thành công
+            window.location.href = 'success.html';
+        }
+
+        // Khởi chạy khi mở trang
+        checkPaymentAuth();
+        loadPaymentSummary();
+    </script>
+</body>
+</html>

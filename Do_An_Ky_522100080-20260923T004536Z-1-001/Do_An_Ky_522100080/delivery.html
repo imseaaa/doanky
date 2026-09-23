@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5c28de3a79.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <!---Link Bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <title>Seaa_DELIVERY</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.jpg"></a>
+        </div>
+        <div class="menu">
+            <li><a href="">Vòng tay</a>
+                <ul class="sub-menu">
+                    <li><a href="category.html">Bạc</a></li>
+                    <li><a href="category.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="catetrangtri.html">Dây chuyền</a>
+                <ul class="sub-menu">
+                    <li><a href="catechaucay.html">Bạc</a></li>
+                    <li><a href="catechaucay.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Charm</a>
+            <ul class="sub-menu">
+                    <li><a href="category.html">Bạc</a></li>
+                    <li><a href="category.html">Vàng</a></li>
+                </ul></li>
+            <li><a href="">Nhẫn</a>
+            <ul class="sub-menu">
+                    <li><a href="category.html">Bạc</a></li>
+                    <li><a href="category.html">Vàng</a></li>
+                </ul></li>
+            <li><a href="">Hoa tai</a>
+            <ul class="sub-menu">
+                    <li><a href="category.html">Bạc</a></li>
+                    <li><a href="category.html">Vàng</a></li>
+                </ul></li>
+                <li><a href="review.html" style="color: #d9534f;"><i class="fas fa-star me-1"></i> ĐÁNH GIÁ</a></li>
+        </div>
+    </header>
+
+    <!--------delivery------->
+    <section class="delivery">
+        <div class="container">
+            <div class="delivery-top-wrap">
+                <div class="delivery-top">
+                    <div class="delivery-top-cart delivery-top-item">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="delivery-top-map delivery-top-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="delivery-top-pay delivery-top-item">
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="delivery-content">
+                <!-- FORM THÔNG TIN GIAO HÀNG -->
+                <div class="delivery-content-left">
+                    <p>Vui lòng chọn địa chỉ giao hàng</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="customerType" id="typeGuest" value="guest" checked>
+                        <label class="form-check-label" for="typeGuest">Khách lẻ</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="customerType" id="typeBusiness" value="business">
+                        <label class="form-check-label" for="typeBusiness">Doanh nghiệp</label>
+                    </div>
+
+                    <div class="delivery-content-left-input-top1">
+                        <div class="delivery-content-left-input-top-item">
+                            <label for="deli-name">Họ và tên <span style="color:red">*</span></label>
+                            <input type="text" id="deli-name" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="delivery-content-left-input-top-item">
+                            <label for="deli-phone">Số điện thoại <span style="color:red">*</span></label>
+                            <input type="text" id="deli-phone" placeholder="09xxxxxxxx" required>
+                        </div>
+                    </div>
+                    <div class="delivery-content-left-input-top2">
+                        <div class="delivery-content-left-input-top-item">
+                            <label for="deli-city">Tỉnh thành <span style="color:red">*</span></label>
+                            <input type="text" id="deli-city" placeholder="Hà Nội, TP.HCM..." required>
+                        </div>
+                        <div class="delivery-content-left-input-top-item">
+                            <label for="deli-district">Quận/huyện <span style="color:red">*</span></label>
+                            <input type="text" id="deli-district" placeholder="Quận/Huyện..." required>
+                        </div>
+                    </div>
+                    <div class="delivery-content-left-input-bottom">
+                        <label for="deli-address">Địa chỉ cụ thể <span style="color:red">*</span></label>
+                        <input type="text" id="deli-address" placeholder="Số nhà, tên đường, phường/xã..." required>
+                    </div>
+
+                    <div class="delivery-content-left-button">
+                        <a href="cart.html"><span>&#171;</span><p>Quay lại giỏ hàng</p></a>
+                        <button type="button" class="btn btn-dark" onclick="goToPayment()">
+                            THANH TOÁN VÀ GIAO HÀNG
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TỔNG KẾT ĐƠN HÀNG TỰ ĐỘNG -->
+                <div class="delivery-content-right">
+                    <table id="delivery-order-table">
+                        <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody id="delivery-items-body">
+                            <!-- Danh sách sản phẩm được load từ localStorage -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="font-weight:bold;" colspan="2">Tổng</td>
+                                <td><p id="deli-subtotal" style="font-weight:bold;">0<sup>đ</sup></p></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;" colspan="2">Phí vận chuyển</td>
+                                <td><p style="font-weight:bold;">0<sup>đ</sup></p></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold;" colspan="2">Tổng tiền hàng</td>
+                                <td><p id="deli-total" style="font-weight:bold; color: red;">0<sup>đ</sup></p></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer-center">
+        <p>Công ty Cổ phần Value Waste với số đăng ký kinh doanh : 2173401220056 <br>
+            Địa chỉ đăng ký: Lạc Long Quân, P.10, Q.11, TP Ha Noi, Việt Nam - 0334428690 <br>
+        </p>
+    </div>
+    <div class="footer-bottom">
+        ©ValueWatse All rights reserved
+    </div>
+
+    <!-- JAVASCRIPT XỬ LÝ -->
+    <script>
+        // 1. Kiểm tra trạng thái Header & thông tin đăng nhập
+        function checkDeliveryAuth() {
+            const currentUser = JSON.parse(localStorage.getItem('current_user'));
+            const userNav = document.getElementById('user-nav');
+            const nameInput = document.getElementById('deli-name');
+
+            if (currentUser) {
+                if (userNav) {
+                    userNav.innerHTML = `
+                        <span style="font-size: 12px; font-weight: bold;">Chào, ${currentUser.name}</span>
+                        <a href="javascript:void(0)" onclick="logout()" title="Đăng xuất" style="margin-left: 6px; color: red;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    `;
+                }
+                // Tự động điền tên người dùng nếu có sẵn
+                if (nameInput && !nameInput.value) {
+                    nameInput.value = currentUser.name;
+                }
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('current_user');
+            window.location.reload();
+        }
+
+        // 2. Đọc danh sách sản phẩm từ localStorage ra bảng bên phải
+        function loadOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('my_cart')) || [];
+            const tbody = document.getElementById('delivery-items-body');
+            tbody.innerHTML = '';
+
+            if (cart.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="padding: 15px; color: grey;">Chưa có sản phẩm nào!</td></tr>`;
+                document.getElementById('deli-subtotal').innerHTML = `0<sup>đ</sup>`;
+                document.getElementById('deli-total').innerHTML = `0<sup>đ</sup>`;
+                return;
+            }
+
+            let subtotal = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td><p>${itemTotal.toLocaleString('vi-VN')}<sup>đ</sup></p></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const formatted = subtotal.toLocaleString('vi-VN') + '<sup>đ</sup>';
+            document.getElementById('deli-subtotal').innerHTML = formatted;
+            document.getElementById('deli-total').innerHTML = formatted;
+        }
+
+        // 3. Xử lý lưu địa chỉ và chuyển sang payment.html
+        function goToPayment() {
+            const cart = JSON.parse(localStorage.getItem('my_cart')) || [];
+            if (cart.length === 0) {
+                alert('Giỏ hàng của bạn đang trống. Vui lòng chọn sản phẩm trước!');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const name = document.getElementById('deli-name').value.trim();
+            const phone = document.getElementById('deli-phone').value.trim();
+            const city = document.getElementById('deli-city').value.trim();
+            const district = document.getElementById('deli-district').value.trim();
+            const address = document.getElementById('deli-address').value.trim();
+
+            if (!name || !phone || !city || !district || !address) {
+                alert('Vui lòng điền đầy đủ các thông tin giao hàng bắt buộc (*)');
+                return;
+            }
+
+            // Lưu thông tin giao hàng vào localStorage để trang payment.html có thể dùng
+            const deliveryInfo = { name, phone, city, district, address };
+            localStorage.setItem('delivery_info', JSON.stringify(deliveryInfo));
+
+            // Chuyển sang bước thanh toán
+            window.location.href = 'payment.html';
+        }
+
+        // Khởi chạy khi load trang
+        checkDeliveryAuth();
+        loadOrderSummary();
+    </script>
+</body>
+</html>

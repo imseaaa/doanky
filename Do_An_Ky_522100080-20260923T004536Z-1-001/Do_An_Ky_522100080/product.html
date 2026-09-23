@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5c28de3a79.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title id="title-tag">Seaaa_CHI TIẾT SẢN PHẨM</title>
+    <style>
+        /* Huy hiệu số lượng trên icon giỏ hàng */
+        .cart-icon-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        #cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 1px 6px;
+        }
+
+        /* Layout chi tiết sản phẩm */
+        .product-detail-section {
+            margin-top: 110px;
+            margin-bottom: 60px;
+        }
+
+        .product-main-img-box {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            background: #fff;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .product-main-img-box img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .size-box span {
+            display: inline-block;
+            padding: 6px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            user-select: none;
+            transition: 0.2s;
+        }
+
+        .size-box span.active {
+            border-color: #000;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-add-detail {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+            padding: 10px 22px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-add-detail:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-buy-detail {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 10px 26px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-buy-detail:hover {
+            background-color: #333;
+            border-color: #333;
+        }
+
+        /* Mục sản phẩm gợi ý */
+        .relate-item {
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            background: #fff;
+            margin-right: 20px;
+            transition: 0.2s;
+        }
+
+        .relate-item:hover {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .relate-item img {
+            width: 100%;
+            height: 180px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-add-cart-sm {
+            margin-top: 8px;
+            padding: 5px 10px;
+            font-size: 12px;
+            border: 1px solid #333;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-add-cart-sm:hover {
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.jpg"></a>
+        </div>
+        <div class="menu">
+            <li><a href="">Vòng tay</a>
+                <ul class="sub-menu">
+                    <li><a href="vongtaybac.html">Bạc</a></li>
+                    <li><a href="vongtayvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Dây chuyền</a>
+                <ul class="sub-menu">
+                    <li><a href="daychuyenbac.html">Bạc</a></li>
+                    <li><a href="daychuyenvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Charm</a>
+                <ul class="sub-menu">
+                    <li><a href="charmbac.html">Bạc</a></li>
+                    <li><a href="charmvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Nhẫn</a>
+                <ul class="sub-menu">
+                    <li><a href="nhanbac.html">Bạc</a></li>
+                    <li><a href="nhanvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Hoa tai</a>
+                <ul class="sub-menu">
+                    <li><a href="hoataibac.html">Bạc</a></li>
+                    <li><a href="hoataivang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="review.html" style="color: #d9534f;"><i class="fas fa-star me-1"></i> ĐÁNH GIÁ</a></li>
+        </div>
+        <div class="others">
+            <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i></li>
+            <li><a class="fa fa-paw" href=""></a></li>
+            <li id="user-nav">
+                <a class="fa fa-user" href="auth.html" title="Đăng nhập / Đăng ký"></a>
+            </li>
+            <li>
+                <a class="cart-icon-wrapper" href="cart.html">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span id="cart-badge">0</span>
+                </a>
+            </li>
+        </div>
+    </header>
+
+    <!-- CHI TIẾT SẢN PHẨM -->
+    <section class="container product-detail-section">
+        <div class="row mb-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="font-size: 13px;">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="bread-name">Tên sản phẩm</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row align-items-center">
+            <!-- ẢNH SẢN PHẨM -->
+            <div class="col-md-5">
+                <div class="product-main-img-box">
+                    <img id="detail-img" src="img/noibat1.png" alt="Ảnh sản phẩm">
+                </div>
+            </div>
+
+            <!-- THÔNG TIN & NÚT MUA -->
+            <div class="col-md-7 ps-md-5 mt-4 mt-md-0">
+                <h2 id="detail-name" style="font-size: 26px; font-weight: bold; color: #222;">Tên sản phẩm</h2>
+                <p class="text-muted mb-2" style="font-size: 13px;">Mã sản phẩm: <span id="detail-sku">SEA-001</span></p>
+
+                <h3 id="detail-price" style="color: #d9534f; font-weight: bold; margin: 15px 0; font-size: 24px;">0<sup>đ</sup></h3>
+
+                <!-- Chọn Size -->
+                <div class="mb-3">
+                    <p class="mb-2" style="font-weight: bold; font-size: 14px;">Chọn kích cỡ:</p>
+                    <div class="size-box">
+                        <span class="active" onclick="chooseSize(this)">Size S</span>
+                        <span onclick="chooseSize(this)">Size M</span>
+                        <span onclick="chooseSize(this)">Size L</span>
+                    </div>
+                </div>
+
+                <!-- Chọn số lượng -->
+                <div class="mb-4 d-flex align-items-center gap-3">
+                    <span style="font-weight: bold; font-size: 14px;">Số lượng:</span>
+                    <input type="number" id="detail-qty" value="1" min="1" class="form-control" style="width: 75px; text-align: center;">
+                </div>
+
+                <!-- Nút bấm -->
+                <div class="d-flex gap-3 mb-4">
+                    <button type="button" class="btn-add-detail" onclick="handleAddToCart(false)">
+                        <i class="fas fa-cart-plus me-1"></i> THÊM VÀO GIỎ
+                    </button>
+                    <button type="button" class="btn-buy-detail" onclick="handleAddToCart(true)">
+                        MUA NGAY
+                    </button>
+                </div>
+
+                <!-- Accordion thông tin -->
+                <div class="accordion" id="prodInfo">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                Chất liệu & Thiết kế
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#prodInfo">
+                            <div class="accordion-body" style="font-size: 13px; line-height: 1.6;">
+                                • Sản phẩm thiết kế tinh xảo từ chất liệu cao cấp, bảo đảm độ sáng bóng.<br>
+                                • Phong cách tối giản, tinh tế, phù hợp cho mọi hoàn cảnh.<br>
+                                • Hộp đựng trang sức sang trọng đi kèm khăn bảo quản.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                Chính sách bảo hành
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#prodInfo">
+                            <div class="accordion-body" style="font-size: 13px; line-height: 1.6;">
+                                • Bảo hành làm sáng miễn phí trọn đời.<br>
+                                • Hỗ trợ đổi size trong vòng 7 ngày kể từ khi nhận hàng.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SẢN PHẨM LIÊN QUAN -->
+    <section class="container mb-5">
+        <h5 style="font-weight: bold; border-left: 4px solid #000; padding-left: 10px; margin-bottom: 20px;">SẢN PHẨM KHÁC</h5>
+        <div class="d-flex flex-wrap gap-3">
+            <div class="relate-item" data-name="Charm1" data-price="750000" data-img="img/noibat1.png">
+                <a href="javascript:void(0)" onclick="selectOtherProduct(this)">
+                    <img src="img/noibat1.png" alt="Charm1">
+                    <h6 style="font-size: 13px; margin-top: 8px; color: #333;">Charm1</h6>
+                </a>
+                <p style="font-weight: bold; font-size: 13px; margin: 4px 0;">750.000<sup>đ</sup></p>
+                <button type="button" class="btn-add-cart-sm" onclick="quickAddRelate(this)"><i class="fas fa-cart-plus"></i> Thêm giỏ</button>
+            </div>
+
+            <div class="relate-item" data-name="Vòng tay2" data-price="1600000" data-img="img/noibat4.png">
+                <a href="javascript:void(0)" onclick="selectOtherProduct(this)">
+                    <img src="img/noibat4.png" alt="Vòng tay2">
+                    <h6 style="font-size: 13px; margin-top: 8px; color: #333;">Vòng tay2</h6>
+                </a>
+                <p style="font-weight: bold; font-size: 13px; margin: 4px 0;">1.600.000<sup>đ</sup></p>
+                <button type="button" class="btn-add-cart-sm" onclick="quickAddRelate(this)"><i class="fas fa-cart-plus"></i> Thêm giỏ</button>
+            </div>
+
+            <div class="relate-item" data-name="Dây chuyền1" data-price="750000" data-img="img/noibat7.png">
+                <a href="javascript:void(0)" onclick="selectOtherProduct(this)">
+                    <img src="img/noibat7.png" alt="Dây chuyền1">
+                    <h6 style="font-size: 13px; margin-top: 8px; color: #333;">Dây chuyền1</h6>
+                </a>
+                <p style="font-weight: bold; font-size: 13px; margin: 4px 0;">750.000<sup>đ</sup></p>
+                <button type="button" class="btn-add-cart-sm" onclick="quickAddRelate(this)"><i class="fas fa-cart-plus"></i> Thêm giỏ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- NÚT ĐIỀU HƯỚNG NHANH -->
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="cart.html" class="btn btn-warning px-4 py-2" style="font-weight: bold; border-radius: 20px;">
+            <i class="fas fa-shopping-cart"></i> XEM GIỎ HÀNG & THANH TOÁN
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-bottom">
+        ©ValueWatse All rights reserved
+    </div>
+
+    <!-- JAVASCRIPT XỬ LÝ -->
+    <script>
+        let currentItem = null;
+        let selectedSize = "Size S";
+
+        // 1. Tải thông tin sản phẩm từ localStorage
+        function loadCurrentProduct() {
+            const stored = localStorage.getItem("selected_product");
+            const fallback = {
+                name: "Charm1",
+                price: 750000,
+                img: "img/noibat1.png",
+                size: "Size S"
+            };
+
+            currentItem = stored ? JSON.parse(stored) : fallback;
+
+            document.getElementById("detail-name").innerText = currentItem.name;
+            document.getElementById("bread-name").innerText = currentItem.name;
+            document.getElementById("title-tag").innerText = "Seaaa - " + currentItem.name;
+            document.getElementById("detail-img").src = currentItem.img;
+            document.getElementById("detail-price").innerHTML = Number(currentItem.price).toLocaleString("vi-VN") + "<sup>đ</sup>";
+
+            const code = currentItem.name.replace(/\s+/g, '').toUpperCase().slice(0, 5);
+            document.getElementById("detail-sku").innerText = "SEA-" + code;
+        }
+
+        // 2. Chọn Size
+        function chooseSize(element) {
+            document.querySelectorAll(".size-box span").forEach(el => el.classList.remove("active"));
+            element.classList.add("active");
+            selectedSize = element.innerText;
+        }
+
+        // 3. Thêm vào giỏ hàng
+        function handleAddToCart(isBuyNow) {
+            const qty = parseInt(document.getElementById("detail-qty").value) || 1;
+            const product = {
+                name: currentItem.name,
+                price: currentItem.price,
+                img: currentItem.img,
+                size: selectedSize,
+                quantity: qty
+            };
+
+            let cart = JSON.parse(localStorage.getItem("my_cart")) || [];
+            const existingIndex = cart.findIndex(p => p.name === product.name && p.size === product.size);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += qty;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("my_cart", JSON.stringify(cart));
+            updateBadge();
+
+            if (isBuyNow) {
+                window.location.href = "cart.html";
+            } else {
+                alert(`Đã thêm ${qty} ${currentItem.name} (${selectedSize}) vào giỏ hàng!`);
+            }
+        }
+
+        // 4. Bấm xem sản phẩm ở mục gợi ý
+        function selectOtherProduct(el) {
+            const parent = el.closest(".relate-item");
+            const productData = {
+                name: parent.dataset.name,
+                price: parseInt(parent.dataset.price),
+                img: parent.dataset.img,
+                size: "Size S"
+            };
+            localStorage.setItem("selected_product", JSON.stringify(productData));
+            loadCurrentProduct();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 5. Thêm nhanh ở mục gợi ý
+        function quickAddRelate(btn) {
+            const parent = btn.closest(".relate-item");
+            const product = {
+                name: parent.dataset.name,
+                price: parseInt(parent.dataset.price),
+                img: parent.dataset.img,
+                size: "Tiêu chuẩn",
+                quantity: 1
+            };
+
+            let cart = JSON.parse(localStorage.getItem("my_cart")) || [];
+            const existingIndex = cart.findIndex(p => p.name === product.name);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("my_cart", JSON.stringify(cart));
+            updateBadge();
+
+            const oldText = btn.innerHTML;
+            btn.innerHTML = `<i class="fas fa-check"></i> Đã thêm`;
+            btn.style.backgroundColor = "#28a745";
+            btn.style.color = "#fff";
+            setTimeout(() => {
+                btn.innerHTML = oldText;
+                btn.style.backgroundColor = "";
+                btn.style.color = "";
+            }, 1000);
+        }
+
+        // 6. Cập nhật số lượng huy hiệu giỏ hàng
+        function updateBadge() {
+            const cart = JSON.parse(localStorage.getItem("my_cart")) || [];
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById("cart-badge").innerText = count;
+        }
+
+        // 7. Đồng bộ đăng nhập
+        function checkAuth() {
+            const currentUser = JSON.parse(localStorage.getItem('current_user'));
+            const userNav = document.getElementById('user-nav');
+
+            if (currentUser && userNav) {
+                userNav.innerHTML = `
+                    <span style="font-size: 12px; font-weight: bold;">Chào, ${currentUser.name}</span>
+                    <a href="javascript:void(0)" onclick="logout()" title="Đăng xuất" style="margin-left: 6px; color: red;">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                `;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('current_user');
+            window.location.reload();
+        }
+
+        // Khởi động
+        loadCurrentProduct();
+        updateBadge();
+        checkAuth();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5c28de3a79.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Seaaa_ĐÁNH GIÁ & NHẬN XÉT</title>
+    <style>
+        .cart-icon-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        #cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 1px 6px;
+        }
+
+        /* Khối đánh giá */
+        .review-section {
+            margin-top: 110px;
+            margin-bottom: 60px;
+        }
+
+        .rating-overview-card {
+            background-color: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .star-rating-select {
+            color: #ffc107;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .star-item {
+            transition: transform 0.15s ease;
+        }
+
+        .star-item:hover {
+            transform: scale(1.15);
+        }
+
+        .review-card {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 18px 0;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .verified-badge {
+            font-size: 11px;
+            color: #28a745;
+            margin-left: 6px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.jpg" alt="Seaaa Logo"></a>
+        </div>
+        <div class="menu">
+            <li><a href="">Vòng tay</a>
+                <ul class="sub-menu">
+                    <li><a href="vongtaybac.html">Bạc</a></li>
+                    <li><a href="vongtayvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Dây chuyền</a>
+                <ul class="sub-menu">
+                    <li><a href="daychuyenbac.html">Bạc</a></li>
+                    <li><a href="daychuyenvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Charm</a>
+                <ul class="sub-menu">
+                    <li><a href="charmbac.html">Bạc</a></li>
+                    <li><a href="charmvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Nhẫn</a>
+                <ul class="sub-menu">
+                    <li><a href="nhanbac.html">Bạc</a></li>
+                    <li><a href="nhanvang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="">Hoa tai</a>
+                <ul class="sub-menu">
+                    <li><a href="hoataibac.html">Bạc</a></li>
+                    <li><a href="hoataivang.html">Vàng</a></li>
+                </ul>
+            </li>
+            <li><a href="review.html" style="color: #d9534f;"><i class="fas fa-star me-1"></i> ĐÁNH GIÁ</a></li>
+        </div>
+        <div class="others">
+            <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i></li>
+            <li><a class="fa fa-paw" href=""></a></li>
+            <li id="user-nav">
+                <a class="fa fa-user" href="auth.html" title="Tài khoản"></a>
+            </li>
+            <li>
+                <a class="cart-icon-wrapper" href="cart.html">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span id="cart-badge">0</span>
+                </a>
+            </li>
+        </div>
+    </header>
+
+    <!-- KHỐI ĐÁNH GIÁ CHÍNH -->
+    <main class="container review-section">
+        <div class="row mb-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="font-size: 13px;">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Đánh giá khách hàng</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold mt-2">ĐÁNH GIÁ TỪ KHÁCH HÀNG</h2>
+            <p class="text-muted">Lắng nghe trải nghiệm mua sắm thực tế từ những khách hàng đã tin chọn Seaaa.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- CỘT TRÁI: TỔNG QUAN XẾP HẠNG & FORM ĐÁNH GIÁ -->
+            <div class="col-lg-5">
+                <!-- Thẻ điểm số tổng quan -->
+                <div class="rating-overview-card mb-4 text-center">
+                    <h1 class="fw-bold text-warning mb-0" style="font-size: 48px;">4.9</h1>
+                    <div class="text-warning my-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-muted small mb-3">Dựa trên <span id="total-review-count">0</span> đánh giá hài lòng</p>
+
+                    <!-- Thanh phân bố sao -->
+                    <div class="text-start small">
+                        <div class="d-flex align-items-center mb-1">
+                            <span style="width: 45px;">5 sao</span>
+                            <div class="progress flex-grow-1 mx-2" style="height: 7px;">
+                                <div class="progress-bar bg-warning" style="width: 88%;"></div>
+                            </div>
+                            <span class="text-muted">88%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-1">
+                            <span style="width: 45px;">4 sao</span>
+                            <div class="progress flex-grow-1 mx-2" style="height: 7px;">
+                                <div class="progress-bar bg-warning" style="width: 9%;"></div>
+                            </div>
+                            <span class="text-muted">9%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-1">
+                            <span style="width: 45px;">3 sao</span>
+                            <div class="progress flex-grow-1 mx-2" style="height: 7px;">
+                                <div class="progress-bar bg-warning" style="width: 3%;"></div>
+                            </div>
+                            <span class="text-muted">3%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-1">
+                            <span style="width: 45px;">2 sao</span>
+                            <div class="progress flex-grow-1 mx-2" style="height: 7px;">
+                                <div class="progress-bar bg-warning" style="width: 0%;"></div>
+                            </div>
+                            <span class="text-muted">0%</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span style="width: 45px;">1 sao</span>
+                            <div class="progress flex-grow-1 mx-2" style="height: 7px;">
+                                <div class="progress-bar bg-warning" style="width: 0%;"></div>
+                            </div>
+                            <span class="text-muted">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form gửi đánh giá mới -->
+                <div class="card p-3 border-light shadow-sm">
+                    <h5 class="fw-bold mb-3">Gửi đánh giá của bạn</h5>
+                    <form id="reviewForm" onsubmit="submitReview(event)">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Mức độ hài lòng:</label>
+                            <div class="star-rating-select" id="star-picker">
+                                <i class="fas fa-star star-item" data-value="1" onclick="setRating(1)"></i>
+                                <i class="fas fa-star star-item" data-value="2" onclick="setRating(2)"></i>
+                                <i class="fas fa-star star-item" data-value="3" onclick="setRating(3)"></i>
+                                <i class="fas fa-star star-item" data-value="4" onclick="setRating(4)"></i>
+                                <i class="fas fa-star star-item" data-value="5" onclick="setRating(5)"></i>
+                            </div>
+                            <input type="hidden" id="selected-rating" value="5">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="review-user-name" class="form-label small fw-bold">Họ và tên của bạn:</label>
+                            <input type="text" id="review-user-name" class="form-control" placeholder="Nguyễn Văn A" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="review-product" class="form-label small fw-bold">Sản phẩm bạn đã trải nghiệm:</label>
+                            <select id="review-product" class="form-select" required>
+                                <option value="Vòng tay bạc Seaaa Sparkling">Vòng tay bạc Seaaa Sparkling</option>
+                                <option value="Dây chuyền bạc đính đá">Dây chuyền bạc đính đá</option>
+                                <option value="Charm bạc cao cấp">Charm bạc cao cấp</option>
+                                <option value="Nhẫn bạc thanh lịch">Nhẫn bạc thanh lịch</option>
+                                <option value="Hoa tai bạc lấp lánh">Hoa tai bạc lấp lánh</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="review-comment" class="form-label small fw-bold">Nhận xét chi tiết:</label>
+                            <textarea id="review-comment" class="form-control" rows="3" placeholder="Chia sẻ cảm nhận về chất liệu, độ sáng bóng, thời gian giao hàng..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100 fw-bold py-2">
+                            <i class="fas fa-paper-plane me-1"></i> GỬI ĐÁNH GIÁ
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- CỘT PHẢI: DANH SÁCH NHẬN XÉT -->
+            <div class="col-lg-7">
+                <div class="d-flex justify-content-between align-items-center pb-2 border-bottom mb-3">
+                    <h5 class="fw-bold mb-0">Tất cả nhận xét</h5>
+                    <span class="text-muted small">Mới nhất</span>
+                </div>
+
+                <!-- Danh sách bình luận -->
+                <div id="review-list">
+                    <!-- Được render bằng JavaScript từ localStorage -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div class="footer-center text-center mt-5">
+        <p>Thương hiệu trang sức Seaaa<br>
+            Địa chỉ: Lạc Long Quân, P.10, Q.11, TP Ha Noi, Việt Nam - 0334428690
+        </p>
+    </div>
+    <div class="footer-bottom text-center py-3 bg-light">
+        ©Seaaa All rights reserved
+    </div>
+
+    <!-- JAVASCRIPT XỬ LÝ -->
+    <script>
+        // Header Sticky
+        const header = document.querySelector("header");
+        window.addEventListener("scroll", function () {
+            if (window.pageYOffset > 0) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        });
+
+        // 1. Kiểm tra tài khoản đã đăng nhập
+        function checkReviewAuth() {
+            const currentUser = JSON.parse(localStorage.getItem('current_user'));
+            const userNav = document.getElementById('user-nav');
+            const nameInput = document.getElementById('review-user-name');
+
+            if (currentUser) {
+                if (userNav) {
+                    userNav.innerHTML = `
+                        <span style="font-size: 12px; font-weight: bold;">Chào, ${currentUser.name}</span>
+                        <a href="javascript:void(0)" onclick="logout()" title="Đăng xuất" style="margin-left: 6px; color: red;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    `;
+                }
+                if (nameInput) {
+                    nameInput.value = currentUser.name;
+                }
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('current_user');
+            window.location.reload();
+        }
+
+        // 2. Cập nhật số lượng giỏ hàng
+        function updateBadge() {
+            const cart = JSON.parse(localStorage.getItem("my_cart")) || [];
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const badge = document.getElementById("cart-badge");
+            if (badge) badge.innerText = count;
+        }
+
+        // 3. Hệ thống chọn sao
+        let currentRating = 5;
+        function setRating(rating) {
+            currentRating = rating;
+            document.getElementById("selected-rating").value = rating;
+            const stars = document.querySelectorAll("#star-picker .star-item");
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove("far");
+                    star.classList.add("fas");
+                } else {
+                    star.classList.remove("fas");
+                    star.classList.add("far");
+                }
+            });
+        }
+
+        // 4. Dữ liệu đánh giá mẫu khởi đầu
+        const initialReviews = [
+            {
+                name: "Trần Minh Thư",
+                product: "Vòng tay bạc Seaaa Sparkling",
+                rating: 5,
+                date: "20/09/2026",
+                comment: "Vòng tay bên ngoài nhìn sáng và tinh tế hơn trong ảnh nhiều. Hộp quà đóng gói siêu đẹp, có kèm khăn lau bạc chu đáo!"
+            },
+            {
+                name: "Nguyễn Hoàng Nam",
+                product: "Dây chuyền bạc đính đá",
+                rating: 5,
+                date: "18/09/2026",
+                comment: "Mình mua tặng bạn gái dịp sinh nhật, bạn gái khen nức nở. Mặt dây chuyền bắt sáng rất tốt, đường nét tỉ mỉ."
+            },
+            {
+                name: "Lê Ngọc Ánh",
+                product: "Charm bạc cao cấp",
+                rating: 4,
+                date: "12/09/2026",
+                comment: "Charm xinh xắn, gắn vào vòng tay rất vừa vặn. Giao hàng hỏa tốc trong 2 tiếng đúng giờ."
+            }
+        ];
+
+        // 5. Hiển thị danh sách đánh giá từ localStorage
+        function loadReviews() {
+            let reviews = JSON.parse(localStorage.getItem("vw_reviews"));
+            if (!reviews || reviews.length === 0) {
+                reviews = initialReviews;
+                localStorage.setItem("vw_reviews", JSON.stringify(reviews));
+            }
+
+            document.getElementById("total-review-count").innerText = reviews.length;
+            const container = document.getElementById("review-list");
+            container.innerHTML = "";
+
+            reviews.forEach(rev => {
+                const firstLetter = rev.name ? rev.name.trim().charAt(0).toUpperCase() : "K";
+                
+                let starsHtml = "";
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= rev.rating) {
+                        starsHtml += '<i class="fas fa-star text-warning"></i> ';
+                    } else {
+                        starsHtml += '<i class="far fa-star text-warning"></i> ';
+                    }
+                }
+
+                const item = document.createElement("div");
+                item.className = "review-card d-flex gap-3";
+                item.innerHTML = `
+                    <div class="review-avatar flex-shrink-0">${firstLetter}</div>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="fw-bold mb-0">
+                                ${rev.name}
+                                <span class="verified-badge"><i class="fas fa-check-circle"></i> Đã mua hàng</span>
+                            </h6>
+                            <span class="text-muted small">${rev.date}</span>
+                        </div>
+                        <div class="my-1 small">${starsHtml}</div>
+                        <div class="text-muted small mb-1">Sản phẩm: <strong>${rev.product}</strong></div>
+                        <p class="mb-0 text-secondary" style="font-size: 14px; line-height: 1.5;">${rev.comment}</p>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // 6. Gửi đánh giá mới
+        function submitReview(e) {
+            e.preventDefault();
+            const name = document.getElementById("review-user-name").value.trim();
+            const product = document.getElementById("review-product").value;
+            const comment = document.getElementById("review-comment").value.trim();
+
+            if (!name || !comment) {
+                alert("Vui lòng điền đầy đủ tên và cảm nhận của bạn!");
+                return;
+            }
+
+            const today = new Date();
+            const dateStr = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
+
+            const newReview = {
+                name: name,
+                product: product,
+                rating: currentRating,
+                date: dateStr,
+                comment: comment
+            };
+
+            let reviews = JSON.parse(localStorage.getItem("vw_reviews")) || initialReviews;
+            reviews.unshift(newReview); // Thêm lên đầu danh sách
+            localStorage.setItem("vw_reviews", JSON.stringify(reviews));
+
+            // Reset form và render lại
+            document.getElementById("review-comment").value = "";
+            setRating(5);
+            loadReviews();
+            alert("Cảm ơn bạn đã gửi đánh giá cho Seaaa!");
+        }
+
+        // Khởi động
+        checkReviewAuth();
+        updateBadge();
+        loadReviews();
+    </script>
+</body>
+
+</html>
